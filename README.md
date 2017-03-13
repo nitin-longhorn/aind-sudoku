@@ -3,11 +3,13 @@
 
 # Question 1 (Naked Twins)
 Q: How do we use constraint propagation to solve the naked twins problem?  
-A: *Student should provide answer here*
+A: First, we need to go through the dictionary to find all occurrences of naked twins. Then, if there is a naked twin pair present in the same row or column or box or diagonal unit, then we eliminate the values present in the naked twins from all other boxes of the corresponding unit.
+
 
 # Question 2 (Diagonal Sudoku)
 Q: How do we use constraint propagation to solve the diagonal sudoku problem?  
-A: *Student should provide answer here*
+A: Each Sudoku has 2 diagonals and we can add two more constraints to check for the each of the diagonals in the Sudoku.
+We create two diagonal units and add it to unit_list.
 
 ### Install
 

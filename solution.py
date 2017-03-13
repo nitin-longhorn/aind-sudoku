@@ -103,6 +103,15 @@ def grid_values(grid):
 
 
 def eliminate(values):
+    """
+    If a box has a single value assigned, then none of the peers of this box can have this value.
+    :param values:
+        The dictionary of the sudoku
+
+    :return values:
+        The values dictionary with the values eliminated
+
+    """
     values = naked_twins(values)
     solved_values = [b for b in boxes if len(values[b]) == 1]
     for box in solved_values:
@@ -113,6 +122,17 @@ def eliminate(values):
     return values
 
 def only_choice(values):
+    """
+        If there is only one box in a unit which would allow a certain digit,
+        then that box must be assigned that digit.
+
+    :param values:
+            The dictionary of the sudoku
+
+    :return values:
+        The values dictionary with values after applying the only choice constraint
+
+    """
     nums = '123456789'
     for unit in unit_list:
         for digit in nums:
@@ -122,6 +142,16 @@ def only_choice(values):
     return values
 
 def reduce_puzzle(values):
+    """
+    Combining functions eliminate and only choice to keep reducing and
+    simplifying the sudoku until no more reduction is possible
+
+    :param values:
+        The dictionary of the sudoku that needs reduction
+
+    :return values:
+        The sudoku dictionary after reduction after applying eliminate and only choice
+    """
     stalled = False
     while not stalled:
         before_solved_number = 0

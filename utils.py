@@ -29,7 +29,8 @@ diagonal2 = ['A9','B8','C7','D6','E5','F4','G3','H2','I1']
 diagonal_list1 = [diagonal1 for row in row_unit]
 diagonal_list2 = [diagonal2 for row in row_unit]
 
-#unit_list = row_unit + col_unit + square_unit
+
+# Applying the diagonal constraint
 unit_list = row_unit + col_unit + square_unit + diagonal_list1 + diagonal_list2
 print (unit_list)
 units = dict((s, [u for u in unit_list if s in u]) for s in boxes)
